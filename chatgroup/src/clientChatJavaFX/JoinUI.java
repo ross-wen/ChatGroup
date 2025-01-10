@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
 
-public class Client extends Application {
+public class JoinUI extends Application {
     private Socket socket;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
@@ -30,11 +30,11 @@ public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Chat Area (non-editable)
+        //Chat Area (non-editable)
         chatArea.setEditable(false);
         chatArea.setPrefHeight(300);
 
-        // Input Fields
+        //Input Fields
         usernameField.setPromptText("Enter your username");
         ipField.setPromptText("Server IP (e.g., 127.0.0.1)");
         portField.setPromptText("Port (e.g., 5000)");
@@ -42,12 +42,12 @@ public class Client extends Application {
         messageField.setDisable(true);
         sendButton.setDisable(true);
 
-        // Buttons
+        //Buttons
         connectButton.setOnAction(e -> connectToServer());
         sendButton.setOnAction(e -> sendMessage());
         messageField.setOnAction(e -> sendMessage());
 
-        // Layout
+        //Layout
         VBox connectionPane = new VBox(5, new Label("Connection Details"), usernameField, ipField, portField, connectButton);
         VBox chatPane = new VBox(5, new Label("Chat"), chatArea, messageField, sendButton);
 
